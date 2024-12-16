@@ -43,53 +43,53 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     message = text=event.message.text
-    if re.match('告訴我秘密',message):
+    if re.match('推薦景點',message):
         carousel_template_message = TemplateSendMessage(
             alt_text='熱門旅行景點',
             template=CarouselTemplate(
                 columns=[
                     CarouselColumn(
-                        thumbnail_image_url='https://i.imgur.com/kNBl363.jpg',
-                        title='台灣',
-                        text='taiwan',
+                        thumbnail_image_url='https://i.imgur.com/NBcRFV9.jpg',
+                        title='台中',
+                        text='taichung',
                         actions=[
                             MessageAction(
                                 label='熱門景點',
-                                text='台北101、逢甲夜市、墾丁...'
+                                text='國家歌劇院、逢甲夜市、彩虹眷村...'
                             ),
                             URIAction(
                                 label='馬上查看',
-                                uri='https://en.wikipedia.org/wiki/Taiwan'
+                                uri='https://zh.wikipedia.org/zh-tw/%E8%87%BA%E4%B8%AD%E5%B8%82'
                             )
                         ]
                     ),
                     CarouselColumn(
-                        thumbnail_image_url='https://i.imgur.com/GBPcUEP.png',
-                        title='日本',
-                        text='Japan',
+                        thumbnail_image_url='https://i.imgur.com/3VKcm38.png',
+                        title='台北',
+                        text='taipei',
                         actions=[
                             MessageAction(
                                 label='熱門景點',
-                                text='金閣寺、淺草寺、北海道...'
+                                text='木柵動物園、台北101、故宮博物院...'
                             ),
                             URIAction(
                                 label='馬上查看',
-                                uri='https://en.wikipedia.org/wiki/Japan'
+                                uri='https://www.travel.taipei/zh-tw'
                             )
                         ]
                     ),
                     CarouselColumn(
-                        thumbnail_image_url='https://i.imgur.com/kRW5zTO.png',
-                        title='韓國',
-                        text='Korea',
+                        thumbnail_image_url='https://i.imgur.com/0r69scM.png',
+                        title='高雄',
+                        text='Kaohsiung',
                         actions=[
                             MessageAction(
                                 label='熱門景點',
-                                text='釜山、濟州島、首爾塔...'
+                                text='瑞豐夜市、科學工藝博物館、愛河...'
                             ),
                             URIAction(
                                 label='馬上查看',
-                                uri='https://en.wikipedia.org/wiki/Korea'
+                                uri='https://www.welcometw.com/%E9%AB%98%E9%9B%84%E6%99%AF%E9%BB%9E%E6%8E%A8%E8%96%A6-%EF%BD%9C%E9%AB%98%E9%9B%84%E6%9C%80%E7%BE%8E%E6%9C%80%E5%A4%AFig%E6%89%93%E5%8D%A1%E6%99%AF%E9%BB%9E%EF%BC%8C%E5%B8%82%E5%8D%80%E3%80%81/'
                             )
                         ]
                     )
