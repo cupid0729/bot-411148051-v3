@@ -43,60 +43,31 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     message = text=event.message.text
-    if re.match('推薦景點',message):
-        carousel_template_message = TemplateSendMessage(
-            alt_text='熱門旅行景點',
-            template=CarouselTemplate(
+    if re.match('推薦電影',message):
+        image_carousel_template_message = TemplateSendMessage(
+            alt_text='這是推薦電影',
+            template=ImageCarouselTemplate(
                 columns=[
-                    CarouselColumn(
-                        thumbnail_image_url='https://i.imgur.com/NBcRFV9.jpg',
-                        title='台中',
-                        text='taichung',
-                        actions=[
-                            MessageAction(
-                                label='熱門景點',
-                                text='國家歌劇院、逢甲夜市、彩虹眷村...'
-                            ),
-                            URIAction(
-                                label='馬上查看',
-                                uri='https://zh.wikipedia.org/zh-tw/%E8%87%BA%E4%B8%AD%E5%B8%82'
-                            )
-                        ]
+                    ImageCarouselColumn(
+                        image_url='https://i.imgur.com/5zhmdgr.jpg',
+                        action=PostbackAction(
+                            label='《音速小子3》',
+                            display_text='上映日期：2024年12月27日',
+                            data='action=001'
+                        )
                     ),
-                    CarouselColumn(
-                        thumbnail_image_url='https://i.imgur.com/3VKcm38.png',
-                        title='台北',
-                        text='taipei',
-                        actions=[
-                            MessageAction(
-                                label='熱門景點',
-                                text='木柵動物園、台北101、故宮博物院...'
-                            ),
-                            URIAction(
-                                label='馬上查看',
-                                uri='https://www.travel.taipei/zh-tw'
-                            )
-                        ]
-                    ),
-                    CarouselColumn(
-                        thumbnail_image_url='https://i.imgur.com/0r69scM.png',
-                        title='高雄',
-                        text='Kaohsiung',
-                        actions=[
-                            MessageAction(
-                                label='熱門景點',
-                                text='瑞豐夜市、科學工藝博物館、愛河...'
-                            ),
-                            URIAction(
-                                label='馬上查看',
-                                uri='https://www.welcometw.com/%E9%AB%98%E9%9B%84%E6%99%AF%E9%BB%9E%E6%8E%A8%E8%96%A6-%EF%BD%9C%E9%AB%98%E9%9B%84%E6%9C%80%E7%BE%8E%E6%9C%80%E5%A4%AFig%E6%89%93%E5%8D%A1%E6%99%AF%E9%BB%9E%EF%BC%8C%E5%B8%82%E5%8D%80%E3%80%81/'
-                            )
-                        ]
+                    ImageCarouselColumn(
+                        image_url='https://i.imgur.com/7Kr6EEr.jpg',
+                        action=PostbackAction(
+                            label='《劇場版「進擊的巨人」完結篇THE LAST ATTACK》',
+                            display_text='上映日期：2025年1月03日',
+                            data='action=002'
+                        )
                     )
                 ]
             )
         )
-        line_bot_api.reply_message(event.reply_token, carousel_template_message)
+        line_bot_api.reply_message(event.reply_token, image_carousel_template_message)
     else:
         line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
 #主程式
